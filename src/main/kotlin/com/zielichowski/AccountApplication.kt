@@ -1,4 +1,4 @@
-package com.zielichowski.account
+package com.zielichowski
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
