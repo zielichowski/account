@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd"
+                   context="sandbox">
+    <changeSet id="78123781" author="Tomek">
+        <insert tableName="ACCOUNT_ENTITY">
+            <column name="ACCOUNT_ID" value="b1b22e76-382b-4b89-8bee-0e16b309c008"/>
+            <column name="AMOUNT" value="1500"/>
+            <column name="CURRENCY" value="PLN"/>
+        </insert>
+        <insert tableName="ACCOUNT_ENTITY">
+            <column name="ACCOUNT_ID" value="999f2144-493e-4e49-9407-3fc79506ef52"/>
+            <column name="AMOUNT" value="25000"/>
+            <column name="CURRENCY" value="PLN"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
