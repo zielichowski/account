@@ -29,6 +29,8 @@ class AccountTestIT extends Specification {
     @Autowired
     private AccountFacade accountFacade
 
+    private static String API_PREFIX = "/v1/api"
+
     @ClassRule
     @Shared
     public WireMockRule wireMockRule = new WireMockRule(wireMockConfig()
@@ -48,7 +50,7 @@ class AccountTestIT extends Specification {
 
         when:
         def response = mockMvc.perform(MockMvcRequestBuilders
-                .post("/accounts/")
+                .post(API_PREFIX + "/accounts/")
                 .content(request)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andReturn()
@@ -75,7 +77,7 @@ class AccountTestIT extends Specification {
 
         when:
         def response = mockMvc.perform(MockMvcRequestBuilders
-                .get("/accounts/${accountId}/balance")
+                .get(API_PREFIX + "/accounts/${accountId}/balance")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andReturn()
                 .response
@@ -104,7 +106,7 @@ class AccountTestIT extends Specification {
 
         when:
         def response = mockMvc.perform(MockMvcRequestBuilders
-                .get("/accounts/${accountId}/balance")
+                .get(API_PREFIX + "/accounts/${accountId}/balance")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andReturn()
                 .response
@@ -134,7 +136,7 @@ class AccountTestIT extends Specification {
 
         when:
         def response = mockMvc.perform(MockMvcRequestBuilders
-                .get("/accounts/${accountId}/balance")
+                .get(API_PREFIX + "/accounts/${accountId}/balance")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andReturn()
                 .response
@@ -155,7 +157,7 @@ class AccountTestIT extends Specification {
 
         when:
         def response = mockMvc.perform(MockMvcRequestBuilders
-                .post("/accounts/")
+                .post(API_PREFIX + "/accounts/")
                 .content(request)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andReturn()

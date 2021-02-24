@@ -20,13 +20,16 @@ class AccountBalanceProcessTest extends Specification {
         def createAccountRequest = jsonSlurper.parseText(getClass().getResource("create_account_request.json").text)
 
         when: "account is crated"
-        def accountResponse = restClient.post(uri: "http://localhost:${port}/accounts", body: createAccountRequest, headers: ["Content-Type": "application/json"], requestContentType: ContentType.JSON)
+        def accountResponse = restClient.post(uri: "http://localhost:${port}/v1/api/accounts", body: createAccountRequest, headers: ["Content-Type": "application/json"], requestContentType: ContentType.JSON)
 
-        then: "get account Id"
+        then: "response status is created"
+        accountResponse.status == 201
+
+        and: "get account Id"
         def accountId = accountResponse.data["accountId"]
 
         and: "get balance in usd"
-        def response = restClient.get(uri: "http://localhost:${port}/accounts/${accountId}/balance", contentType: ContentType.JSON)
+        def response = restClient.get(uri: "http://localhost:${port}/v1/api/accounts/${accountId}/balance", contentType: ContentType.JSON)
 
         then: "response is ok"
         response.status == 200

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*
 import java.math.BigDecimal
 
 @RestController
-@RequestMapping(produces = ["application/vnd.api.app-v1+json"])
+@RequestMapping(value = ["/v1/api"])
 internal class AccountController(private val accountFacade: AccountFacade) {
 
     @GetMapping("/accounts/{accountId}/balance")
