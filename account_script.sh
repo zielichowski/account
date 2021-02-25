@@ -10,6 +10,8 @@ elif [ "$1" = "-e2e" ]; then
   mvn clean test -pl e2e-test -am
 elif [ "$1" = "-build" ]; then
   mvn clean install -pl account-app -am
+elif [ "$1" = "-unit" ]; then
+  mvn clean test -pl account-app -am
 else
     echo "Usage: $0 -build|-run|-skipTests|-e2e"
     exit 1

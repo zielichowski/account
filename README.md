@@ -8,7 +8,7 @@
 - Clean architecture aka Port and Adapters
 - Rest API (not RestFull -> missing hypermedia)
 - A modular monolith with modularization on package level. That provides high cohesion, low coupling and great options
-  for a journey to microservices.
+  for the journey to microservices.
 
 # Build and Run
 
@@ -23,7 +23,13 @@
 
 # Unit and integration test
 
-- Tests are written in the best test framework for JVM application - spock
+- Tests are written in the best test framework for JVM applications - spock
+- Test code coverage around 95% (measured with Intellij plugin)
+- You can run only unit tests using:
+  * script: `account_script.sh -unit`
+  * maven: `mvn clean test -pl account-app -am`
+
+- Integration tests are included from maven verify phase
 
 # Architecture tests
 
@@ -42,7 +48,7 @@
   *`account_script.sh -e2e`
 - manually executing the following commands in e2e-test directory:
   *`mvn clean test`
-- e2e test covers a happy scenario- the most important for out business. Alternative paths are covered mostly by unit
+- e2e test covers a happy scenario- the most important for our business. Alternative paths are covered mostly by unit
   and integration tests
 
 # Manual tests
@@ -58,11 +64,11 @@
   "currency": "PLN"
   }`
 
-# Conscious decision:
+# Conscious decisions:
 
-- Skipped API authentication/authorization. Security is a huge topic and implementing it in production mode could take
-  too much time.
+- Skipped API authentication/authorization. Security is a huge topic and implementing it in the production mode could
+  take too much time.
 - Skipped infrastructure part. The application uses h2 in memory db and that's the only external dependency.
 - A simple pipeline with one build stage
 - Lack of performance tests. In the real life with tests environments I would definitely use gatling for it.
-- Rest API versioning through url prefix and not header 
+- Rest API versioning through url prefix and not header
