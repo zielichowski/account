@@ -25,11 +25,11 @@
 
 - Tests are written in the best test framework for JVM applications - spock
 - Test code coverage around 95% (measured with Intellij plugin)
-- You can run only unit tests using:
+- If you want you can run only unit tests using:
   * script: `account_script.sh -unit`
   * maven: `mvn clean test -pl account-app -am`
 
-- Integration tests are included from maven verify phase
+- Integration tests are included from maven `verify` phase
 
 # Architecture tests
 
@@ -45,9 +45,9 @@
 ## There are two options to run e2e test:
 
 - using account_script.sh script
-  *`account_script.sh -e2e`
+  * `account_script.sh -e2e`
 - manually executing the following commands in e2e-test directory:
-  *`mvn clean test`
+  * `mvn clean test`
 - e2e test covers a happy scenario- the most important for our business. Alternative paths are covered mostly by unit
   and integration tests
 
@@ -71,4 +71,4 @@
 - Skipped infrastructure part. The application uses h2 in memory db and that's the only external dependency.
 - A simple pipeline with one build stage
 - Lack of performance tests. In the real life with tests environments I would definitely use gatling for it.
-- Rest API versioning through url prefix and not header
+- Rest API versioning through url prefix and not a header
